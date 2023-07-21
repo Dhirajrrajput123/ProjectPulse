@@ -51,7 +51,7 @@ const UpdateManager = () => {
         body: JSON.stringify(formData),
       });
 
-      if (response.ok) {
+      if (response.status==200) {
         alert('Portfolio Manager updated successfully!');
         navigate('/manager');
       } else {

@@ -6,6 +6,7 @@ const GetTask = () => {
     const { id } = useParams();
     const [taskdata,setTaskdata]=useState([]);
 
+    
     useEffect(() => {
         fetchProject();
         console.log(id);

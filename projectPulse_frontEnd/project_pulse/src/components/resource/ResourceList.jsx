@@ -27,10 +27,10 @@ return (
               resource.map((e,i)=>{
                   return (
                       <div key={e.resourceId} className='resource_child'>
-
+                        <div>{e.resourceId}</div>
                          <div>{e.document}</div>
                          <div><a href="{e.link}">Link</a></div>    
-                         <div><button>Task</button></div>
+                         {/* <div><button>Task</button></div> */}
                          <div><button>Update</button></div>
                          <div><button>Delete</button></div>
 
