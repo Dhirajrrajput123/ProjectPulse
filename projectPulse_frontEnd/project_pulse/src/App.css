@@ -1,0 +1,56 @@
+.App {
+  text-align: center;
+}
+
+.header{
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(43, 21, 21);
+}
+
+.header_div{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+h3{
+  text-decoration: none;
+  margin-right: 30px;
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+}
+link{
+  text-decoration: none;
+}
+
+.manager_child{
+  display: flex;
+  color: black;
+  font-size: 19px;
+  width: 60%;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 20px 0px;
+  position: relative;
+  left: 20%;
+}
+
+.manager_child div{
+  width: 18%;
+
+}
+
+button{
+  padding: 15px 20px;
+  background-color: green;
+  color: white;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.update_manager{
+  
+}
