@@ -31,8 +31,6 @@ const ManagerList = () => {
 
     }
     useEffect(() => {
-
-        console.log("inside the effect");
         fetchData();
     }, [flag]);
 
@@ -69,7 +67,7 @@ const ManagerList = () => {
                                 <div>{element.bio}</div>
                                 <div>{element.start_data}</div>
                                 <div>{element.status ? "Active" : "InActive"}</div>
-                                <div><button onClick={()=>updateManager(element)}>Update</button></div>
+                                <div>   <Link to={`/manager/update/${element.managerId}`}> <button>Update</button> </Link></div>
                                 <div> <button onClick={() => deleteManager(element.managerId)}>Delete</button></div>
                             </div>
                         )
@@ -81,9 +79,9 @@ const ManagerList = () => {
 
             </div>
 
-            <div className='update_manager' style={{display:dis?"inline":"none"}}>
+            {/* <div className='update_manager' style={{display:dis?"inline":"none"}}>
                <UpdateManager/>
-            </div>
+            </div> */}
 
         </div>
     )

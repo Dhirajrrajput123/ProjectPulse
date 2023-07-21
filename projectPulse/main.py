@@ -92,7 +92,7 @@ def get_manager(mId):
 @app.route('/manager',methods=['GET'])
 def get_managers():
     managers=db.manager.find()
-    print(managers)
+    # print(managers)
     if managers:
         documents = [document for document in managers]
         manager_json = json.dumps(documents, default=JSONEncoder().default)
@@ -109,11 +109,11 @@ def get_managers():
 @app.route("/project",methods=['POST'])
 def addProject():
     data=request.get_json()
-    id=data['managerId']
+    id=int(data['managerId'])
     print(id)
     managers=db.manager.find_one({'managerId':id})
     if managers==None:
-        return jsonify({'message':'Manager Id not present '})
+        return jsonify({'message':'Manager Id not present '}),404
 
     projects = list(db.project.find())
     length = len(projects)
@@ -184,7 +184,7 @@ def get_projectmanager(mId):
 @app.route('/project',methods=['GET'])
 def get_projects():
     projects=db.project.find()
-    print(projects)
+    # print(projects)
     if projects:
         documents = [document for document in projects]
         project_json = json.dumps(documents, default=JSONEncoder().default)
@@ -307,7 +307,7 @@ def get_task_resource(rId):
 @app.route('/task',methods=['GET'])
 def get_All_task():
     tasks=db.task.find()
-    print(tasks)
+    # print(tasks)
     if tasks:
         documents = [document for document in tasks]
         project_json = json.dumps(documents, default=JSONEncoder().default)
@@ -381,7 +381,7 @@ def get_resource(rId):
 @app.route('/resource',methods=['GET'])
 def get_resources():
     resources=db.resource.find()
-    print(resources)
+    # print(resources)
     if resources:
         documents = [document for document in resources]
         manager_json = json.dumps(documents, default=JSONEncoder().default)

@@ -44,7 +44,7 @@ link{
 }
 
 button{
-  padding: 15px 20px;
+  padding: 12px 18px;
   background-color: green;
   color: white;
   font-size: 20px;
@@ -53,4 +53,65 @@ button{
 
 .update_manager{
   
+}
+
+.project_child{
+  display: flex;
+  color: black;
+  font-size: 17px;
+  width: 60%;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 20px 0px;
+  position: relative;
+  left: 20%;
+}
+
+.project_child div{
+  width: 12%;
+}
+
+
+.task_child{
+  display: flex;
+  color: black;
+  font-size: 16px;
+  width: 60%;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 18px 0px;
+  position: relative;
+  left: 20%;
+}
+
+.task_child div{
+  width: 13.5%;
+}
+
+
+.resource_child{
+  display: flex;
+  color: black;
+  font-size: 16px;
+  width: 60%;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 20px 0px;
+  position: relative;
+  left: 20%;
+}
+.resource_child div{
+  width: 19%;
+}
+
+a{
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
 }
