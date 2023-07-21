@@ -200,16 +200,16 @@ def get_projects():
 @app.route("/task",methods=['POST'])
 def addtask():
     data=request.get_json()
-    id=data['projectId']
-    rId=data['resourceId']
+    id=int(data['projectId'])
+    rId=int(data['resourceId'])
     print(id)
     projects=db.project.find_one({'projectId':id})
     if projects==None:
-        return jsonify({'message':'project Id not present '})
+        return jsonify({'message':'project Id not present '}),404
 
     resources = db.resource.find_one({'resourceId': rId})
     if resources == None:
-        return jsonify({'message': 'resource Id not present '})
+        return jsonify({'message': 'resource Id not present '}),404
 
     tasks = list(db.task.find())
     length = len(tasks)

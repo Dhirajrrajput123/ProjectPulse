@@ -15,6 +15,15 @@ import Home from '../components/Home'
 import UpdateProject from '../components/project/UpdateProject'
 import CreateProject from '../components/project/createProject'
 import GetTask from '../components/project/getTask'
+import UpdateTask from '../components/task/UpdateTask'
+
+import CreateTask from '../components/task/CreateTask'
+
+import CreateResource from '../components/resource/CreateResource'
+
+import GetResource from '../components/task/GetResource'
+
+
 
 const All_routs = () => {
   return (
@@ -46,9 +55,17 @@ const All_routs = () => {
 
               <Route path="/project/update/:id" element={<UpdateProject/>}/>
 
+              <Route path="/task/update/:id" element={<UpdateTask/>}/>
+
               <Route path="/project/task/:id" element={<GetTask/>}/>
 
               <Route path="/project/create" element={<CreateProject/>}/>
+
+              <Route path="/task/create" element={<CreateTask/>}/>
+
+              <Route path="/task/resource/:id" element={<GetResource/>}/>
+
+              <Route path="/resource/create" element={<CreateResource/>}/>
          </Routes>
 
     
