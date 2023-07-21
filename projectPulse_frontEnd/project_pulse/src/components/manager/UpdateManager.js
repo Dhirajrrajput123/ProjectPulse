@@ -1,71 +1,81 @@
-import React, {useEffect, useState} from 'react'
-// import axios from axios;
-import Manager from '../Manager';
+import React, { useState, useEffect } from 'react';
+import { useNavigate,useParams } from 'react-router-dom';
 
-const initialData={"bio":"", "managerId":0,"name":"", "role":"", "start_data":"","status":true};
+const UpdateManager = () => {
+  const navigate = useNavigate();
+  const { id } = useParams();
 
-const UpdateManager = (props) => {
-    const [update_manager,setUpdate_manager]=useState(initialData);
-    const [flag,setFlag]=useState(false);
-    useEffect(()=>{
-      const manager=JSON.parse(localStorage.getItem('manager')) || initialData;
-      // console.log(manager);
-      setUpdate_manager(manager);
-    },[flag]);
-    // <input defaultValue={manager.role} type="text" required  />
-const handleSubmit=(e)=>{
-   e.preventDefault()
-   console.log(update_manager)
-    //  axios.put(`http://127.0.0.1:5000/manager/${update_manager.managerId}`,{update_manager},{ headers:{
-    //   "Accept":"application/json",
-    //   "Content-Type":'application/json'
-    // }}).then((res)=>{console.log(res)});
-    function putManager(){
+  const [formData, setFormData] = useState({
+    password: '',
+    status: '',
+    role: '',
+    bio: '',
+    name:''
+  });
 
-    fetch(`http://127.0.0.1:5000/manager/${update_manager.managerId}`,{
-      method:'PUT',
-      headers:{
-        "Accept":"application/json",
-        "Content-Type":'application/json'
-      },
-      body:JSON.stringify(update_manager)
-    }).then((res)=>{console.log(res.status); res.json()}).then((data)=>{console.log(data)});
-    
-    alert("successfully");
-   }
-   putManager();
-}
+  useEffect(() => {
+    fetchPortfolioManager();
+    console.log(id);
+  }, []);
 
-const handleCHange=(e)=>{
-      const {name,value}=e.target;
-      setUpdate_manager((pre)=>({...pre,[name]:value}));
-     
-}
-const handlecheckbox=(e)=>{
-  console.log(e.target.checked);
-      setUpdate_manager((pre)=>({...pre,status:e.target.checked}));
-      setFlag(!flag);
-}
+  const fetchPortfolioManager = async () => {
+    try {
+      const response = await fetch(`http://127.0.0.1:5000/manager/${id}`);
+      const data = await response.json();
+      setFormData(data);
+    } catch (error) {
+      console.error('Error fetching Portfolio Manager:', error);
+    }
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    delete formData._id;
+    delete formData.managerId;
+    console.log(formData)
+    try {
+      const response = await fetch(`http://127.0.0.1:5000/manager/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert('Portfolio Manager updated successfully!');
+        navigate('/manager');
+      } else {
+        alert('Error updating Portfolio Manager. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error updating Portfolio Manager:', error);
+    }
+  };
 
   return (
     <div>
-        <h2>Update Manager</h2>
-        <form onSubmit={handleSubmit}>
-       <div><label htmlFor="">Manager Id:- </label><input onChange={handleCHange} value={update_manager.managerId} type="number" required disabled /> </div>
-       <div><label htmlFor="">Name:- </label><input name="name" onChange={handleCHange} defaultValue={update_manager.name} type="text" required  /> </div>
-       <div><label htmlFor="">Role:- </label> 
-       <select  onChange={handleCHange} name="role" id="role" defaultValue={update_manager.role}>
-        <option value="">Select Role</option>
-        <option value="Admin">Admin</option>
-        <option value="User">User</option>
-        </select></div>
-       <div><label htmlFor="">Bio:-</label><input name="bio" onChange={handleCHange} defaultValue={update_manager.bio} type="text" required   /> </div>
-       <div><label htmlFor="">Start-Date:- </label><input name="start_data" onChange={handleCHange} defaultValue={update_manager.start_data} type="date" required/> </div>
-       <div><label htmlFor="">Status:-</label><input type='checkbox' ischecked={update_manager.status} onChange={handlecheckbox}  /> </div>
-       <div><label htmlFor=""></label> <input type="submit"/></div>
-        </form>
+      <h2>Update Portfolio Manager</h2>
+      <form onSubmit={handleFormSubmit}  style={{display: 'flex', flexDirection: 'column'}}>
+      <label> Name: <input type="text" name="name" value={formData.name} onChange={handleInputChange} /> </label>
+        <label> Password: <input type="password" name="password" value={formData.password} onChange={handleInputChange} /> </label>
+        <label> Status: <input type="text" name="status" value={formData.status} onChange={handleInputChange} /> </label>
+        <label> Role: <input type="text" name="role" value={formData.role} onChange={handleInputChange} /> </label>
+        <label> Bio: <input type="text" name="bio" value={formData.bio} onChange={handleInputChange} /> </label>
+
+        <button type="submit">Update Portfolio Manager</button>
+      </form>
     </div>
-  )
+  );
 }
 
 export default UpdateManager
