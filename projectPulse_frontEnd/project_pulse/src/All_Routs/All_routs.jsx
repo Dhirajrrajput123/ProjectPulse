@@ -22,7 +22,7 @@ import CreateTask from '../components/task/CreateTask'
 import CreateResource from '../components/resource/CreateResource'
 
 import GetResource from '../components/task/GetResource'
-
+import UpdateResource from '../components/resource/UpdateResource'
 
 
 const All_routs = () => {
@@ -65,6 +65,7 @@ const All_routs = () => {
 
               <Route path="/task/resource/:id" element={<GetResource/>}/>
 
+              <Route path="/resource/update/:id" element={<UpdateResource/>}/>
               <Route path="/resource/create" element={<CreateResource/>}/>
          </Routes>
 
