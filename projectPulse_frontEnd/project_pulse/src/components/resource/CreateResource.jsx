@@ -48,7 +48,7 @@ const CreateResource = () => {
   return (
     <div>
       <h2>Create Resource</h2>
-      <form onSubmit={handleFormSubmit}  style={{display: 'flex', flexDirection: 'column'}}>
+      <form onSubmit={handleFormSubmit}  style={{display: 'flex', flexDirection: 'column'}} className='create_new'>
         <label> Documents: <input type="text" name="document" value={formData.document} onChange={handleInputChange} /> </label>
         <label> Link: <input type="text" name="link" value={formData.link} onChange={handleInputChange} /> </label>
         

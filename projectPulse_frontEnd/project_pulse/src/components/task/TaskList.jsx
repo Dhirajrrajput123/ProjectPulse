@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
+import globleData from '../globleVariable'
+import { useNavigate } from 'react-router-dom';
 
 const TaskList = () => {
+
+    const navigate=useNavigate();
+
+    if(globleData.status!='login'){
+        alert('you need to login 1st');
+        navigate('/');
+    }
 
   const [task, setTask] = useState([]);
 

@@ -31,10 +31,12 @@ const CreateManager = (props) => {
   return (
     <div>
         <h2>Create Manager</h2>
+        <div className='create_new'>
        <div><label htmlFor="">Name:- </label><input type="text" required value={name} onChange={(e)=>{setName(e.target.value)}} /> </div>
        <div><label htmlFor="">Role:- </label><input type="text" required value={role} onChange={(e)=>{setRole(e.target.value)}} /> </div>
        <div><label htmlFor="">Bio:-</label><input type="text" required value={bio} onChange={(e)=>{setBio(e.target.value)}} /> </div>
         <button onClick={createManager}>Submit</button>
+        </div>
     </div>
   )
 }

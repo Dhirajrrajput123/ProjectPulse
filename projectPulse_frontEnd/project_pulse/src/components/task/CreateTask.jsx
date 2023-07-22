@@ -53,12 +53,12 @@ const handleFormSubmit = async (event) => {
   return (
     <div>
       <h2>Create Task</h2>
-      <form onSubmit={handleFormSubmit}  style={{display: 'flex', flexDirection: 'column'}}>
+      <form onSubmit={handleFormSubmit}  style={{display: 'flex', flexDirection: 'column'}} className='create_new'>
       <label> Name: <input type="text" name="t_name" value={formData.t_name} onChange={handleInputChange} /> </label>
         <label> Status: <input type="text" name="t_status" value={formData.t_status} onChange={handleInputChange} /> </label>
-        <label> Project Id: <input type="text" name="projectId" value={formData.projectId} onChange={handleInputChange} /> </label>
-        <label> Developer Id: <input type="text" name="developerId" value={formData.developerId} onChange={handleInputChange} /> </label>
-        <label> Resource Id: <input type="text" name="resourceId" value={formData.resourceId} onChange={handleInputChange} /> </label>
+        <label> Project Id: <input type="number" name="projectId" value={formData.projectId} onChange={handleInputChange} /> </label>
+        <label> Developer Id: <input type="number" name="developerId" value={formData.developerId} onChange={handleInputChange} /> </label>
+        <label> Resource Id: <input type="number" name="resourceId" value={formData.resourceId} onChange={handleInputChange} /> </label>
 
         <button type="submit">Create Task</button>
       </form>
