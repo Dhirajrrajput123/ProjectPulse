@@ -8,6 +8,12 @@
   background-color: rgb(43, 21, 21);
 }
 
+.logout{
+  background-color: rgb(98, 36, 36);
+  padding: 5px 10px;
+  border: none;
+}
+
 .header_div{
   display: flex;
   justify-content: space-evenly;
@@ -114,4 +120,29 @@ a{
   text-decoration: none;
   font-size: 16px;
   color: black;
+}
+.create_link{
+  text-align: center;
+  color: blue;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+h2{
+  text-align: center;
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+}
+h1{
+  text-align: center;
+}
+.create_new{
+  position: absolute;
+  width: 60%;
+  text-align: center;
+  left: 20%;
+  margin-top: 20px;
+}
+
+label{
+  margin:5px 0px ;
 }

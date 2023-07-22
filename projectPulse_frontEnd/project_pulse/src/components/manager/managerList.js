@@ -3,19 +3,20 @@ import { useState, useEffect, } from 'react'
 import UpdateManager from './UpdateManager'
 import CreateManager from './createManager'
 import { Link, useSearchParams } from 'react-router-dom'
-
-
+import globleData from '../globleVariable'
+import { useNavigate } from 'react-router-dom'
 
 const ManagerList = () => {
-    // const [serachParam,setSearchParam]=useSearchParams();
+
+    const navigate=useNavigate();
+
+    if(globleData.status!='login'){
+        alert('you need to login 1st');
+        navigate('/');
+    }
+
     const [manager, setManager] = useState([]);
-    // const [ele, setEle] = useState({});
     
-    // const [name, setName] = useState("");
-    // const [role, setRole] = useState("");
-    // const [bio, setBio] = useState("");
-    // const [status, setStatus] = useState("");
-    // const [date, setdate] = useState("");
     
     const [flag,setFlag]=useState(false);
     const [dis,setDis]=useState(false);

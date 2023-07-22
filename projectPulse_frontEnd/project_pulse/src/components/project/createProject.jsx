@@ -61,7 +61,7 @@ const handleFormSubmit = async (event) => {
   return (
     <div>
       <h2>Add new Project</h2>
-      <form onSubmit={handleFormSubmit}  style={{display: 'flex', flexDirection: 'column'}}>
+      <form onSubmit={handleFormSubmit}  style={{display: 'flex', flexDirection: 'column'}} className='create_new'>
       <label> Name: <input type="text" name="p_name" value={formData.p_name} onChange={handleInputChange} /> </label>
         <label> Project Status: <input type="text" name="p_status" value={formData.p_status} onChange={handleInputChange} /> </label>
         <label> Starting Date: <input type="date" name="start_date" value={formData.start_date} onChange={handleInputChange} /> </label>
