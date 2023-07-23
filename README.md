@@ -4,7 +4,7 @@
 Project Pulse is a user-friendly web application that helps you manage and monitor your project portfolios effectively. With its easy-to-use interface and comprehensive features, you can track project progress, manage tasks, allocate resources, and collaborate with your team in real-time. Stay in control of your projects and ensure successful delivery through efficient project portfolio management. Experience the full potential of your projects with Project Pulse!
 
 ## Deployed App
-  - [Frontend](https://deployed-site.whatever)
+  - [Frontend](https://managerpi.netlify.app/)
   - [Backend](https://project-pulse.onrender.com)
 
 
