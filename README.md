@@ -42,8 +42,8 @@ Provide instructions and examples on how to use your project.
 
 ```bash
 Admin Login credential(hardCoded) is:-
-username:-admin
-password:-admin
+username:-Admin
+password:-Admin
 ```
 
 Include screenshots as necessary.
