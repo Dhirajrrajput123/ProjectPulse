@@ -258,3 +258,9 @@ Include screenshots as necessary.
 - React for the front-end
 - MongoDB for the database
 - Other libraries/modules
+
+
+ ## Social Media
+ - [GitHub](https://github.com/Dhirajrrajput123)
+ - [View me](https://dhirajrrajput123.github.io/)
+ - [LinkdIn](https://www.linkedin.com/in/dhiraj-kumar-154bb324b/)
