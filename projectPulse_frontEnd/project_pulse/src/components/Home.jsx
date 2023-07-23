@@ -3,7 +3,10 @@ import { useNavigate } from 'react-router-dom'
 
 import globleData from './globleVariable'
 
+import Url from './url'
+
 const Home = () => {
+  // console.log(Url);
   const navigate=useNavigate();
   const [name,setName]=useState('');
   const [pass,setPass]=useState('');

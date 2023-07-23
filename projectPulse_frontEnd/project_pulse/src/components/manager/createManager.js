@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-
+import Url from '../url'
 const CreateManager = (props) => {
     const [name,setName]=useState("");
     const [role,setRole]=useState("");
@@ -8,7 +8,7 @@ const CreateManager = (props) => {
     const createManager=async ()=>{
         const mang={name,role,bio}
         try{
-            const response=await fetch('http://127.0.0.1:5000/manager',{
+            const response=await fetch(`${Url}/manager`,{
                 method:'POST',
                 headers:{
                     'Accept':'application/json',

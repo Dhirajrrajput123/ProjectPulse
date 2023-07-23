@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import globleData from '../globleVariable'
 import { useNavigate } from 'react-router-dom';
+import Url from '../url'
 
 const TaskList = () => {
 
@@ -17,7 +18,7 @@ const TaskList = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/task');
+      const response = await fetch(`${Url}/task`);
       const data = await response.json();
       setTask(data);
       // console.log(task);
@@ -34,7 +35,7 @@ const TaskList = () => {
   const deleteTask=async (id)=>{
 
     try {
-      const response = await fetch(`http://127.0.0.1:5000/task/${id}`,{
+      const response = await fetch(`${Url}/task/${id}`,{
         method:'DELETE'
       });
       const data = await response.json();

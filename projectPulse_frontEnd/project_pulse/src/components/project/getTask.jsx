@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { useNavigate,useParams } from 'react-router-dom';
-
+import Url from '../url'
+import { Link } from 'react-router-dom';
 
 const GetTask = () => {
     const { id } = useParams();
@@ -14,7 +15,8 @@ const GetTask = () => {
 
       const fetchProject = async () => {
         try {
-          const response = await fetch(`http://127.0.0.1:5000/task/project/${id}`);
+          console.log(typeof(id));
+          const response = await fetch(`${Url}/task/project/${id}`);
           const data = await response.json();
           setTaskdata(data);
           
@@ -22,7 +24,20 @@ const GetTask = () => {
           console.error('Error fetching Project:', error);
         }
       };
+    const deleteTask=async (id)=>{
 
+    try {
+      const response = await fetch(`${Url}/task/${id}`,{
+        method:'DELETE'
+      });
+      const data = await response.json();
+      alert(`Task deleted Successfully...`);
+    } catch (error) {
+      alert('Error Delete data: ', error);
+    }
+
+    fetchProject();
+  }
 
   return (
     <div>
@@ -46,9 +61,9 @@ const GetTask = () => {
                 <div>{e.t_status}</div>
                 <div>{e.projectId}</div>
                 <div>{e.resourceId}</div>
-                <div><button>Resource</button></div>
-                <div><button>Update</button></div>
-                <div><button>Delete</button></div>
+                <div><Link to={`/task/resource/${e.resourceId}`}><button>Resource</button></Link> </div>
+                <div><Link to={`/task/update/${e.taskId}`}><button>Update</button></Link></div>
+                <div><button onClick={()=>deleteTask(e.taskId)}>Delete</button></div>
 
               </div>
                 )

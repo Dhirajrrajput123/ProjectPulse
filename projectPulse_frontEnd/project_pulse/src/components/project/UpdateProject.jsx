@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { useNavigate,useParams } from 'react-router-dom';
-
+import Url from '../url'
 
 
 const UpdateProject = () => {
@@ -22,7 +22,7 @@ const UpdateProject = () => {
 
   const fetchProject = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:5000/project/${id}`);
+      const response = await fetch(`${Url}/project/${id}`);
       const data = await response.json();
       setFormData(data);
     } catch (error) {
@@ -45,7 +45,7 @@ const UpdateProject = () => {
     delete formData.projectId;
     console.log(formData)
     try {
-      const response = await fetch(`http://127.0.0.1:5000/project/${id}`, {
+      const response = await fetch(`${Url}/project/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

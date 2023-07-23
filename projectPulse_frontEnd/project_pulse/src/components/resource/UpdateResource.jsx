@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import { useNavigate,useParams } from 'react-router-dom'
-
+import Url from '../url'
 
 const UpdateResource = () => {
   const navigate=useNavigate();
@@ -18,7 +18,7 @@ const UpdateResource = () => {
   
   const fetchProject = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:5000/resource/${id}`);
+      const response = await fetch(`${Url}/resource/${id}`);
       const data = await response.json();
       setFormData(data);
     } catch (error) {
@@ -41,7 +41,7 @@ const UpdateResource = () => {
     delete formData.resourceId;
     console.log(formData)
     try {
-      const response = await fetch(`http://127.0.0.1:5000/resource/${id}`, {
+      const response = await fetch(`${Url}/resource/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

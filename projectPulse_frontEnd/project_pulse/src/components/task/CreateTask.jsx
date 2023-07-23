@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
+import Url from '../url'
 
 const CreateTask = () => {
      const navigate = useNavigate();
@@ -25,9 +26,12 @@ const CreateTask = () => {
 const handleFormSubmit = async (event) => {
   event.preventDefault();
 
+  formData.developerId=+(formData.developerId);
+  formData.resourceId=+(formData.resourceId);
+  formData.projectId=+(formData.projectId);
   console.log(formData)
   try {
-    const response = await fetch(`http://127.0.0.1:5000/task`, {
+    const response = await fetch(`${Url}/task`, {
       method: 'POST',
       headers: {
         'Accept':'application/json',
@@ -54,10 +58,10 @@ const handleFormSubmit = async (event) => {
     <div>
       <h2>Create Task</h2>
       <form onSubmit={handleFormSubmit}  style={{display: 'flex', flexDirection: 'column'}} className='create_new'>
-      <label> Name: <input type="text" name="t_name" value={formData.t_name} onChange={handleInputChange} /> </label>
-        <label> Status: <input type="text" name="t_status" value={formData.t_status} onChange={handleInputChange} /> </label>
-        <label> Project Id: <input type="number" name="projectId" value={formData.projectId} onChange={handleInputChange} /> </label>
-        <label> Developer Id: <input type="number" name="developerId" value={formData.developerId} onChange={handleInputChange} /> </label>
+      <label> Name: <input required type="text" name="t_name" value={formData.t_name} onChange={handleInputChange} /> </label>
+        <label> Status: <input required type="text" name="t_status" value={formData.t_status} onChange={handleInputChange} /> </label>
+        <label> Project Id: <input  type="number" name="projectId" value={formData.projectId} onChange={handleInputChange} /> </label>
+        <label> Developer Id: <input  type="number" name="developerId" value={formData.developerId} onChange={handleInputChange} /> </label>
         <label> Resource Id: <input type="number" name="resourceId" value={formData.resourceId} onChange={handleInputChange} /> </label>
 
         <button type="submit">Create Task</button>

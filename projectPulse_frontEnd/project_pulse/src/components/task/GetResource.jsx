@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import Url from '../url'
 
 const GetResource = () => {
 
@@ -14,7 +15,7 @@ const GetResource = () => {
 
   const fetchProject = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:5000/resource/${id}`);
+      const response = await fetch(`${Url}/resource/${id}`);
       const data = await response.json();
       setResponceData(data);
       console.log(data);

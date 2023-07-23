@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
-
+import Url from '../url'
 
 const CreateProject = () => {
   const navigate = useNavigate();
@@ -34,9 +34,10 @@ const handleFormSubmit = async (event) => {
 
   delete formData._id;
   delete formData.projectId;
+  formData.managerId=+(formData.managerId);
   console.log(formData)
   try {
-    const response = await fetch(`http://127.0.0.1:5000/project`, {
+    const response = await fetch(`${Url}/project`, {
       method: 'POST',
       headers: {
         'Accept':'application/json',
@@ -62,11 +63,11 @@ const handleFormSubmit = async (event) => {
     <div>
       <h2>Add new Project</h2>
       <form onSubmit={handleFormSubmit}  style={{display: 'flex', flexDirection: 'column'}} className='create_new'>
-      <label> Name: <input type="text" name="p_name" value={formData.p_name} onChange={handleInputChange} /> </label>
-        <label> Project Status: <input type="text" name="p_status" value={formData.p_status} onChange={handleInputChange} /> </label>
-        <label> Starting Date: <input type="date" name="start_date" value={formData.start_date} onChange={handleInputChange} /> </label>
-        <label> End Date: <input type="date" name="end_date" value={formData.end_date} onChange={handleInputChange} /> </label>
-        <label> Manager Id: <input type="number" name="managerId" value={formData.managerId} onChange={handleInputChange} /> </label>
+      <label> Name: <input required type="text" name="p_name" value={formData.p_name} onChange={handleInputChange} /> </label>
+        <label> Project Status: <input required type="text" name="p_status" value={formData.p_status} onChange={handleInputChange} /> </label>
+        <label> Starting Date: <input required type="date" name="start_date" value={formData.start_date} onChange={handleInputChange} /> </label>
+        <label> End Date: <input required type="date" name="end_date" value={formData.end_date} onChange={handleInputChange} /> </label>
+        <label> Manager Id: <input required type="number" name="managerId" value={formData.managerId} onChange={handleInputChange} /> </label>
 
         <button type="submit">Update Project</button>
       </form>

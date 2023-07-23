@@ -5,6 +5,7 @@ import CreateManager from './createManager'
 import { Link, useSearchParams } from 'react-router-dom'
 import globleData from '../globleVariable'
 import { useNavigate } from 'react-router-dom'
+import Url from '../url'
 
 const ManagerList = () => {
 
@@ -23,7 +24,7 @@ const ManagerList = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch('http://127.0.0.1:5000/manager');
+            const response = await fetch(`${Url}/manager`);
             const data = await response.json();
             setManager(data);
         } catch (error) {
@@ -38,7 +39,7 @@ const ManagerList = () => {
     const deleteManager = async (id) => {
         console.log(id);
         try {
-            const response = await fetch("http://127.0.0.1:5000/manager/" + id, {
+            const response = await fetch(`${Url}/manager/` + id, {
                 method: "DELETE"
             });
             const data = await response.json();

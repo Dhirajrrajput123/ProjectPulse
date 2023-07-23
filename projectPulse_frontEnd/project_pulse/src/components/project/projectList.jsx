@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 import globleData from '../globleVariable';
-
+import Url from '../url'
 const ProjectList = () => {
     const navigate=useNavigate();
 
@@ -17,7 +17,7 @@ const ProjectList = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch('http://127.0.0.1:5000/project');
+            const response = await fetch(`${Url}/project`);
             const data = await response.json();
             setProject(data);
             // console.log(project);
@@ -33,7 +33,7 @@ const ProjectList = () => {
     const deleteProject=async (pId)=>{
         // console.log(pId);
         try {
-            const response = await fetch("http://127.0.0.1:5000/project/" + pId, {
+            const response = await fetch(`${Url}/project/` + pId, {
                 method: "DELETE"
             });
             const data = await response.json();

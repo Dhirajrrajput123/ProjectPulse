@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-
+import Url from '../url'
 const UpdateTask = () => {
 
   const {id}=useParams();
@@ -22,7 +22,7 @@ const UpdateTask = () => {
 
   const fetchPortfolioManager=async ()=>{
     try {
-      const response = await fetch(`http://127.0.0.1:5000/task/${id}`);
+      const response = await fetch(`${Url}/task/${id}`);
       const data = await response.json();
       setFormData(data);
     } catch (error) {
@@ -46,7 +46,7 @@ const UpdateTask = () => {
     delete formData.taskId;
     console.log(formData)
     try {
-      const response = await fetch(`http://127.0.0.1:5000/task/${id}`, {
+      const response = await fetch(`${Url}/task/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate,useParams } from 'react-router-dom';
-
+import Url from '../url'
 const UpdateManager = () => {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -20,7 +20,7 @@ const UpdateManager = () => {
 
   const fetchPortfolioManager = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:5000/manager/${id}`);
+      const response = await fetch(`${Url}/manager/${id}`);
       const data = await response.json();
       setFormData(data);
     } catch (error) {
@@ -43,7 +43,7 @@ const UpdateManager = () => {
     delete formData.managerId;
     console.log(formData)
     try {
-      const response = await fetch(`http://127.0.0.1:5000/manager/${id}`, {
+      const response = await fetch(`${Url}/manager/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

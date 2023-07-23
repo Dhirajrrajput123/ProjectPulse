@@ -2,6 +2,8 @@ import React,{useState,useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import globleData from '../globleVariable'
 import { useNavigate } from 'react-router-dom';
+import Url from '../url'
+
 const ResourceList = () => {
 
     const navigate=useNavigate();
@@ -15,7 +17,7 @@ const ResourceList = () => {
 
   const fetchData = async () => {
       try {
-          const response = await fetch('http://127.0.0.1:5000/resource');
+          const response = await fetch(`${Url}/resource`);
           const data = await response.json();
           setResource(data);
           console.log(resource);
@@ -30,7 +32,7 @@ const ResourceList = () => {
 
   const deleteResource=async (id)=>{
     try{
-    const res=await fetch(`http://127.0.0.1:5000/resource/${id}`,{
+    const res=await fetch(`${Url}/resource/${id}`,{
         method:'DELETE'
     });
     if(res.status==200){

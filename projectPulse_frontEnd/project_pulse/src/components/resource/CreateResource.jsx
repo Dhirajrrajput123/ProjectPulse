@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import Url from '../url'
 const CreateResource = () => {
 
   const navigate=useNavigate();
@@ -22,7 +22,7 @@ const CreateResource = () => {
 
     console.log(formData)
     try {
-      const response = await fetch(`http://127.0.0.1:5000/resource`, {
+      const response = await fetch(`${Url}/resource`, {
         method: 'POST',
         headers: {
           'Accept':'application/json',
@@ -49,8 +49,8 @@ const CreateResource = () => {
     <div>
       <h2>Create Resource</h2>
       <form onSubmit={handleFormSubmit}  style={{display: 'flex', flexDirection: 'column'}} className='create_new'>
-        <label> Documents: <input type="text" name="document" value={formData.document} onChange={handleInputChange} /> </label>
-        <label> Link: <input type="text" name="link" value={formData.link} onChange={handleInputChange} /> </label>
+        <label> Documents: <input required type="text" name="document" value={formData.document} onChange={handleInputChange} /> </label>
+        <label> Link: <input required type="text" name="link" value={formData.link} onChange={handleInputChange} /> </label>
         
         <button type="submit">Create Resource</button>
       </form>
