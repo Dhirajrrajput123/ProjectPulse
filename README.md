@@ -6,6 +6,7 @@ Project Pulse is a user-friendly web application that helps you manage and monit
 ## Deployed App
 https://deployed-site.whatever
 
+## Deployed Instruction [click here](https://docs.google.com/document/d/1dlDknDgBmLry0GHmRShckT53tfaCRPd16KTMZn56B70/edit)
 ## Video Walkthrough of the project
 
 ## Features
